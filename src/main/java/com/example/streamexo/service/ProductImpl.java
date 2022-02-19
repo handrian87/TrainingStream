@@ -25,10 +25,6 @@ public class ProductImpl {
         this.customerRepo = customerRepo;
     }
     // Obtains a list of products belongs to category "Books" with price>100
-    /*
-    * This is obviously a filtering logic, the output should fulfill the two filtering requirements.
-    * So, you can apply 2 filter() operations to obtain the result.
-    * */
     public List<Product>BookWithPriceCondition(){
         return (productRepo.findAll()
                 .stream()
@@ -44,10 +40,6 @@ public class ProductImpl {
     }
 
     //Obtain a list of order with prodcts belong to category "Baby"
-    /* You need to start from the data flow from the order entities and then check if order’s products belong
-    * to the category “Baby”. Hence, the filter logic looks
-    * into the products stream of each order record and use anyMatch() to determine if any product fulfill the criteria.
-    */
     @GetMapping("/productId")
     public List<Order> listOfCategoryBaby(){
         List<Order> lisOrder =
@@ -61,10 +53,6 @@ public class ProductImpl {
     }
 
     //Obtain a list of product with category="Toys" and then apply 10% discount
-    /*
-    * After you’ve obtained a product list with a category that belongs to “Toys” using filter(), you can then apply a
-    * 10% discount to the product price by using map().
-    * */
     @GetMapping("/listCatToy")
     public List<Product> listCategoryToysAndDiscount(){
         List<Product> lp = productRepo.findAll()
